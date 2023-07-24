@@ -1,5 +1,8 @@
 import LineGradient from "../components/LineGradient";
 import { motion } from "framer-motion";
+import ggnation from '../assets/portfolio images/goodgame.png'
+import eventmender from '../assets/portfolio images/eventmender.png'
+import offiql from '../assets/portfolio images/offiql.png'
 
 const container = {
   hidden: {},
@@ -15,10 +18,10 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = ({ title }) => {
+const Project = ({ title, image }) => {
   const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
     bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
-  const projectTitle = title.split(" ").join("-").toLowerCase();
+
 
   return (
     <motion.div variants={projectVariant} className="relative">
@@ -29,7 +32,7 @@ const Project = ({ title }) => {
           porttitor accumsan tincidunt.
         </p>
       </div>
-      <img src={`../assets/${projectTitle}.jpeg`} alt={projectTitle} />
+      <img src={image} alt={title} />
     </motion.div>
   );
 };
@@ -51,7 +54,7 @@ const Projects = () => {
       >
         <div>
           <p className="font-playfair font-semibold text-4xl">
-            <span className="text-red">PRO</span>JECTS
+            <span className="text-red">MY</span>WORKS
           </p>
           <div className="flex justify-center mt-5">
             <LineGradient width="w-2/3" />
@@ -80,11 +83,11 @@ const Projects = () => {
           >
             BEAUTIFUL USER INTERFACES
           </div>
-          <Project title="Project 1" />
-          <Project title="Project 2" />
+          <Project title="Eventmender" image={eventmender}/>
+          <Project title="GoodGameNation" image={ggnation}/>
 
           {/* ROW 2 */}
-          <Project title="Project 3" />
+          <Project title="Offiql" image={offiql}/>
           <Project title="Project 4" />
           <Project title="Project 5" />
 
